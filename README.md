@@ -1,7 +1,8 @@
 # Social-Engineering-Toys
 Social Engineering Toys  
   
-```$ sudo python injectShell.py 
+```
+$ sudo python injectShell.py 
 usage: injectShell.py [-h] [-i I] [-o O] [-ip IP]
 
 optional arguments:
