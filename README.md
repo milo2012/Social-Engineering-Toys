@@ -2,7 +2,7 @@
 Social Engineering Toys  
 **injectShell.py**  
   
-The script generates office documents (xls, doc and ppt) that includes VBA code that download and run the Invoke-Shellcode.ps1 (creates a meterpreter reverse shell back to server) when the victim enables Macro in the document.  
+The script generates office documents (xls, doc and ppt) that includes VBA code that downloads and run the Invoke-Shellcode.ps1 (creates a meterpreter reverse shell back to server) when the victim enables Macro in the document.  
   
 You will need to run the windows/meterpreter/reverse_https payload on your the attacker host.  
 ```
