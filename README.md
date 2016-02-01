@@ -1,5 +1,9 @@
 # Social-Engineering-Toys
 Social Engineering Toys  
+  
+  
+Check this blog post https://milo2012.wordpress.com/2016/02/01/phishing-toys/ for more information.  
+  
 **injectShell.py**  
   
 The script generates office documents (xls, doc and ppt) that includes VBA code that downloads and run the Invoke-Shellcode.ps1 (creates a meterpreter reverse shell back to server) when the victim enables Macro in the document.  
