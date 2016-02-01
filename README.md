@@ -23,7 +23,7 @@ usage: injectShell.py [-h] [-t T] [-o O] [-ip IP] [-port PORT]
 
 optional arguments:
   -h, --help  show this help message and exit
-  -t T        [xls|doc|ppt]
+  -t T        [xls|doc|ppt|all]
   -o O        [output filename (without extension)]
   -ip IP      [meterpreter listener ip address]
   -port PORT  [meterpreter listener port]
