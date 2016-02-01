@@ -68,8 +68,8 @@ $ python sendEmail.py -iL namelist.txt -f sampleHtml.txt -t 10
 Sending email to: test01@example.com  
 ```
   
-Below are two examples of namelist.txt
-**Below is sample 1**
+Below are two examples of namelist.txt  
+**Below is sample 1**  
 The fields are separated by "," 
 The first field is: recipient's name  
 The second field is: recipient's email address  
@@ -79,7 +79,7 @@ The second field is: recipient's email address
 Keith,keith123@hotmail.com
 ```
 
-**Below is sample 2**
+**Below is sample 2**  
 The first field is: recipient's name  
 The second field is: recipient's email address  
 The last field is: tracking code  
