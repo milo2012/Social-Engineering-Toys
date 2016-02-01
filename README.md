@@ -70,7 +70,7 @@ Sending email to: test01@example.com
   
 Below are two examples of namelist.txt  
 **Below is sample 1**  
-The fields are separated by "," 
+The fields are separated by ","   
 The first field is: recipient's name  
 The second field is: recipient's email address  
 
